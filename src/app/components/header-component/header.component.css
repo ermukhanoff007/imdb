@@ -25,5 +25,21 @@
   align-items: center;
   gap: 25px;
 }
+.header__nav-films {
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+  letter-spacing: 0.0125em;
+  color: #fff;
+}
+.header__nav-series {
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+  letter-spacing: 0.0125em;
+  color: #fff;
+}
 
-/*# sourceMappingURL=header-component.css.map */
+/*# sourceMappingURL=header.component.css.map */

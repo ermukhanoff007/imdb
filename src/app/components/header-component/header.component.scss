@@ -24,5 +24,21 @@
     display: flex;
     align-items: center;
     gap: 25px;
+    &-films{
+      font-family: Roboto, Helvetica, Arial, sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      line-height: 1.5rem;
+      letter-spacing: 0.0125em;
+      color: #fff;
+    }
+    &-series{
+      font-family: Roboto, Helvetica, Arial, sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      line-height: 1.5rem;
+      letter-spacing: 0.0125em;
+      color: #fff;
+    }
   }
 }

@@ -1,0 +1,7 @@
+<div class="film-list">
+  @if (movies$ | async; as moviesResponse) {
+    @for (movie of moviesResponse.results; track $index) {
+      <app-film-item [movie]="movie"> </app-film-item>
+    }
+  }
+</div>
