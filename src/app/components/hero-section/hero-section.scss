@@ -1,0 +1,53 @@
+.hero {
+  margin-top: 0;
+  &-bg {
+    background-image:
+      linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      linear-gradient(
+        180deg,
+        transparent 14%,
+        rgba(0, 0, 0, 0.3) 49%,
+        rgba(0, 0, 0, 0.3) 85%,
+        transparent
+      ),
+      url(https://developer.imdb.com/hero-dynamic.jpg);
+    background-repeat: repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__content-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    &__block {
+      border: 6px #f5c518;
+      border-left-style: solid;
+      padding-left: 1rem;
+      margin: 1rem 0;
+    }
+    &-text {
+      font-family: Roboto, Helvetica, Arial, sans-serif;
+      font-size: 1.5rem;
+      line-height: 1.5rem;
+      letter-spacing: normal;
+      color: #fff;
+    }
+  }
+  &__container-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 512px;
+    & h1 {
+      font-family: Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 500;
+      line-height: 2.5rem;
+      letter-spacing: 0.00735em;
+      color: #fff;
+      padding: 2rem var(--ipt-pageMargin);
+      margin: 16px 0;
+    }
+  }
+}

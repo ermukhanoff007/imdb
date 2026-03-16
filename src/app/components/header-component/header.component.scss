@@ -1,0 +1,28 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #1e1d1d;
+  padding: 1rem 4rem;
+
+  &__logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 25px;
+    text-decoration: none;
+    &-text {
+      font-family: Roboto, Helvetica, Arial, sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      line-height: 1.5rem;
+      letter-spacing: 0.0125em;
+      color: #fff;
+    }
+  }
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+  }
+}

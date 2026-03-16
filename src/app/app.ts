@@ -1,12 +1,11 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { HeaderComponent } from './components/header-component/header.component';
+import { HeroSection } from './components/hero-section/hero-section';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [HeaderComponent, HeroSection],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
-export class App {
-  protected readonly title = signal('imdb-project');
-}
+export class App {}
