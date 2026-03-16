@@ -1,5 +1,8 @@
 .films-section {
-  margin-top: 30px;
-  padding: 20px;
-  display: flex;
+  margin-top: 20px;
+  padding: 0 0 20px 20px;
+  &__block {
+    display: flex;
+    margin-top: 40px;
+  }
 }

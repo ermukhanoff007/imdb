@@ -11,4 +11,8 @@ export const routes: Routes = [
     path: 'films',
     component: FilmsPage,
   },
+  {
+    path: 'films/top-rate',
+    component: FilmsPage,
+  },
 ];

@@ -31,9 +31,11 @@
       <div class="film-menu">
         <ul>
           <li>
-            <a [routerLink]="['/films']">Популярные</a>
+            <a class="route" [routerLink]="['/films']">Популярные</a>
           </li>
-          <li>Лучшие</li>
+          <li>
+            <a class="route" [routerLink]="['films/top-rate']">Лучшие</a>
+          </li>
         </ul>
       </div>
     </div>

@@ -73,4 +73,9 @@
   display: block;
 }
 
+.route {
+  text-decoration: none;
+  color: #050000;
+}
+
 /*# sourceMappingURL=header.component.css.map */
