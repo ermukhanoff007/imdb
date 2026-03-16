@@ -1,3 +1,7 @@
-
+.film-list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
 
 /*# sourceMappingURL=film-list.css.map */

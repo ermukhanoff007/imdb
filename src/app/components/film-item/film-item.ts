@@ -1,9 +1,10 @@
 import { Component, input } from '@angular/core';
 import { IMovie } from '../../models/movie.model';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-film-item',
-  imports: [],
+  imports: [DatePipe],
   templateUrl: './film-item.html',
   styleUrl: './film-item.scss',
 })

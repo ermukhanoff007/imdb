@@ -42,4 +42,35 @@
   color: #fff;
 }
 
+.nav-item {
+  position: relative;
+}
+.nav-item .film-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  color: #000;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 10px;
+  z-index: 10;
+}
+.nav-item .film-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-item .film-menu ul li {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.nav-item .film-menu ul li:hover {
+  background-color: #eee;
+}
+.nav-item:hover .film-menu {
+  display: block;
+}
+
 /*# sourceMappingURL=header.component.css.map */

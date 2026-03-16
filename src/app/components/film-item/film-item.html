@@ -1,6 +1,9 @@
 <div class="film">
-  <div class="film-img"></div>
-  <div class="film-descripton">
-    <p>{{ movie().title }}</p>
+  <div class="film-img">
+    <img [src]="'https://image.tmdb.org/t/p/w500' + movie().backdrop_path" alt="poster" />
+  </div>
+  <div class="film-description">
+    <p class="film-description__title">{{ movie().title }}</p>
+    <p class="film-description__date">{{ movie().release_date | date }}</p>
   </div>
 </div>

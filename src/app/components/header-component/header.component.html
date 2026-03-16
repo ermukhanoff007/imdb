@@ -26,7 +26,17 @@
     </a>
   </div>
   <div class="header__nav">
-    <span class="header__nav-films">Фильмы</span>
+    <div class="nav-item">
+      <span class="header__nav-films">Фильмы</span>
+      <div class="film-menu">
+        <ul>
+          <li>
+            <a [routerLink]="['/films']">Популярные</a>
+          </li>
+          <li>Лучшие</li>
+        </ul>
+      </div>
+    </div>
     <span class="header__nav-series">Сериалы</span>
   </div>
 </header>
