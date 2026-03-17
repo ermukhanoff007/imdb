@@ -1,0 +1,9 @@
+<section class="series-section">
+  <h1>{{ title() }}</h1>
+  <div class="series-section__block">
+    <app-filter-component></app-filter-component>
+    @if (series$ | async; as moviesResponse) {
+      <app-series-list [seriesResponce]="moviesResponse"></app-series-list>
+    }
+  </div>
+</section>

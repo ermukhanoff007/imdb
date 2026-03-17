@@ -1,0 +1,7 @@
+.series-list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+/*# sourceMappingURL=series-list.css.map */
