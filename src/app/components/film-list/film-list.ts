@@ -1,6 +1,6 @@
 import { Component, input } from '@angular/core';
 import { FilmItem } from '../film-item/film-item';
-import { IMoviesResponse } from '../../models/movie.model';
+import { IMovie } from '../../models/movie.model';
 
 @Component({
   selector: 'app-film-list',
@@ -9,5 +9,5 @@ import { IMoviesResponse } from '../../models/movie.model';
   styleUrl: './film-list.scss',
 })
 export class FilmList {
-  moviesResponce = input.required<IMoviesResponse>();
+  movies = input.required<IMovie[]>();
 }

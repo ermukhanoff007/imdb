@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { IMoviesResponse } from '../models/movie.model';
 import { ITvResponse } from '../models/tv.model';
 import { environment } from '../../environments/environment.development';
+import { IGenre } from '../models/genre.model';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -15,15 +17,30 @@ export class ApiService {
   getPopularMovies() {
     return this.http.get<IMoviesResponse>(`${this.baseUrl}/movie/popular?api_key=${this.API_KEY}`);
   }
+
   getTopRatedMovies() {
     return this.http.get<IMoviesResponse>(
       `${this.baseUrl}/movie/top_rated?api_key=${this.API_KEY}`,
     );
   }
+
   getPopularTVSeries() {
     return this.http.get<ITvResponse>(`${this.baseUrl}/tv/popular?api_key=${this.API_KEY}`);
   }
+
   getTopRatedTVSeries() {
     return this.http.get<ITvResponse>(`${this.baseUrl}/tv/top_rated?api_key=${this.API_KEY}`);
+  }
+
+  getMovieGenres() {
+    return this.http
+      .get<{ genres: IGenre[] }>(`${this.baseUrl}/genre/movie/list?api_key=${this.API_KEY}`)
+      .pipe(map((res) => res.genres));
+  }
+
+  getSeriesGenres() {
+    return this.http
+      .get<{ genres: IGenre[] }>(`${this.baseUrl}/genre/tv/list?api_key=${this.API_KEY}`)
+      .pipe(map((res) => res.genres));
   }
 }

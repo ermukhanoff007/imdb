@@ -4,4 +4,12 @@
   gap: 20px;
 }
 
+.empty {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /*# sourceMappingURL=film-list.css.map */

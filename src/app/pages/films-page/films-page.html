@@ -3,7 +3,7 @@
   <div class="films-section__block">
     <app-filter-component></app-filter-component>
     @if (movies$ | async; as moviesResponse) {
-      <app-film-list [moviesResponce]="moviesResponse"></app-film-list>
+      <app-film-list [movies]="moviesResponse"></app-film-list>
     }
   </div>
 </section>

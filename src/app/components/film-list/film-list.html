@@ -1,5 +1,9 @@
+@if (movies().length === 0) {
+  <div class="empty">No Films</div>
+}
+
 <div class="film-list">
-  @for (movie of moviesResponce().results; track $index) {
+  @for (movie of movies(); track $index) {
     <app-film-item [movie]="movie"> </app-film-item>
   }
 </div>

@@ -2,10 +2,11 @@ import { Component, inject, OnInit, signal } from '@angular/core';
 import { FilmList } from '../../components/film-list/film-list';
 import { FilterComponent } from '../../components/filter-component/filter-component';
 import { Router } from '@angular/router';
-import { ApiService } from '../../services/api-service';
-import { of } from 'rxjs';
-import { IMoviesResponse } from '../../models/movie.model';
+
 import { AsyncPipe } from '@angular/common';
+import { Store } from '@ngrx/store';
+import { selectFilteredMovies } from '../../store/movies/movies.selector';
+import { loadMovies, loadTopMovies, resetFilter } from '../../store/movies/movies.action';
 
 @Component({
   selector: 'app-films-page',
@@ -15,19 +16,23 @@ import { AsyncPipe } from '@angular/common';
 })
 export class FilmsPage implements OnInit {
   private router = inject(Router);
-  private api = inject(ApiService);
-  movies$ = of<IMoviesResponse>({ results: [], total_results: 0, page: 1, total_pages: 1 });
+  private store = inject(Store);
 
   title = signal<string>('');
 
+  movies$ = this.store.select(selectFilteredMovies);
+
   ngOnInit(): void {
     const url = this.router.url;
+
+    this.store.dispatch(resetFilter());
+
     if (url.includes('top-rate')) {
       this.title.set('Top Films');
-      this.movies$ = this.api.getTopRatedMovies();
+      this.store.dispatch(loadTopMovies());
     } else {
       this.title.set('Popular Films');
-      this.movies$ = this.api.getPopularMovies();
+      this.store.dispatch(loadMovies());
     }
   }
 }

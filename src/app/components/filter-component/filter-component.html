@@ -1,1 +1,32 @@
-<div class="filter"></div>
+@let genres = genres$ | async;
+
+<div class="filter">
+  <form class="filter-form" [formGroup]="filterForm">
+    <div class="genre-options">
+      @if (genres; as gList) {
+        @for (genre of gList; track genre.id) {
+          <button
+            type="button"
+            (click)="toggleGenre(genre.id)"
+            [class.selected]="isGenreSelected(genre.id)"
+          >
+            {{ genre.name }}
+          </button>
+        }
+      }
+    </div>
+    <label
+      >Adult:
+      <select formControlName="adult">
+        <option [ngValue]="null">Все</option>
+        <option [ngValue]="true">Adult</option>
+        <option [ngValue]="false">Not Adult</option>
+      </select>
+    </label>
+    <label>
+      Rating:
+      <input type="number" min="0" max="10" formControlName="voteMin" /> -
+      <input type="number" min="0" max="10" formControlName="voteMax" />
+    </label>
+  </form>
+</div>

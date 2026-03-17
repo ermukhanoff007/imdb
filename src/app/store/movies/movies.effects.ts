@@ -13,9 +13,21 @@ export class MoviesEffects {
     this.actions$.pipe(
       ofType(MoviesActions.loadMovies),
       switchMap(() =>
+        this.api.getPopularMovies().pipe(
+          map((res) => {
+            return MoviesActions.loadMoviesSuccess({ movies: res.results });
+          }),
+        ),
+      ),
+    ),
+  );
+  loadTopMovies$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(MoviesActions.loadTopMovies),
+      switchMap(() =>
         this.api
-          .getPopularMovies()
-          .pipe(map((res) => MoviesActions.loadMoviesSuccess({ movies: res.results }))),
+          .getTopRatedMovies()
+          .pipe(map((res) => MoviesActions.loadTopMoviesSuccess({ movies: res.results }))),
       ),
     ),
   );

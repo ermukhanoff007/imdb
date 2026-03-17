@@ -10,8 +10,21 @@ export const moviesReducer = createReducer(
     movies,
     loading: false,
   })),
+
+  on(MoviesActions.loadTopMovies, (state) => ({ ...state, loading: true })),
+  on(MoviesActions.loadTopMoviesSuccess, (state, { movies }) => ({
+    ...state,
+    movies,
+    loading: false,
+  })),
+
   on(MoviesActions.setMovieFilter, (state, { filter }) => ({
     ...state,
     filter: { ...state.filter, ...filter },
+  })),
+
+  on(MoviesActions.resetFilter, (state) => ({
+    ...state,
+    filter: { search: '', genreIds: [], adult: null, voteRange: [0, 10] },
   })),
 );

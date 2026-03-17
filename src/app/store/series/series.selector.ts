@@ -9,6 +9,18 @@ export const selectTvFilter = createSelector(selectTvState, (state) => state.fil
 export const selectFilteredTvShows = createSelector(
   selectAllTvShows,
   selectTvFilter,
-  (tvShows, filter) =>
-    tvShows.filter((tv) => tv.name.toLowerCase().includes(filter.search.toLowerCase())),
+  (seriies, filter) => {
+    return seriies.filter((seriies) => {
+      const matchSearch = seriies.name.toLowerCase().includes(filter.search.toLowerCase());
+
+      const matchGenres =
+        filter.genreIds.length === 0 ||
+        filter.genreIds.some((genreId) => seriies.genre_ids.includes(genreId));
+
+      const matchVote =
+        seriies.vote_average >= filter.voteRange[0] && seriies.vote_average <= filter.voteRange[1];
+
+      return matchSearch && matchGenres && matchVote;
+    });
+  },
 );
