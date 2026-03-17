@@ -34,11 +34,24 @@
             <a class="route" [routerLink]="['/films']">Популярные</a>
           </li>
           <li>
-            <a class="route" [routerLink]="['films/top-rate']">Лучшие</a>
+            <a class="route" [routerLink]="['/films/top-rate']">Лучшие</a>
           </li>
         </ul>
       </div>
     </div>
-    <span class="header__nav-series">Сериалы</span>
+
+    <div class="nav-item">
+      <span class="header__nav-series">Сериалы</span>
+      <div class="series-menu">
+        <ul>
+          <li>
+            <a class="route" [routerLink]="['/series']">Популярные</a>
+          </li>
+          <li>
+            <a class="route" [routerLink]="['/series/top-rate']">Лучшие</a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </header>

@@ -74,11 +74,41 @@
     }
   }
 
-  &:hover .film-menu {
+  .series-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    color: #000;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 10;
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        padding: 5px 10px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #eee;
+        }
+      }
+    }
+  }
+
+  &:hover .film-menu,
+  &:hover .series-menu {
     display: block;
   }
 }
-.route{
+
+.route {
   text-decoration: none;
   color: #050000;
 }

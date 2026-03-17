@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { MainPage } from './pages/main-page/main-page';
 import { FilmsPage } from './pages/films-page/films-page';
+import { SeriesPage } from './pages/series-page/series-page';
 
 export const routes: Routes = [
   {
@@ -14,5 +15,13 @@ export const routes: Routes = [
   {
     path: 'films/top-rate',
     component: FilmsPage,
+  },
+  {
+    path: 'series',
+    component: SeriesPage,
+  },
+  {
+    path: 'series/top-rate',
+    component: SeriesPage,
   },
 ];
