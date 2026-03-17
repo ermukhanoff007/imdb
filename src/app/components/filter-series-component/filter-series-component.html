@@ -1,7 +1,7 @@
 @let genres = genres$ | async;
 
 <div class="filter-series">
-  <form class="filter-form" [formGroup]="filterForm">
+  <form class="filter-series-form" [formGroup]="filterForm">
     <div class="genre-options-series">
       @if (genres; as gList) {
         @for (genre of gList; track genre.id) {
