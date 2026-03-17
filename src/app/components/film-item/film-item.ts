@@ -1,6 +1,7 @@
-import { Component, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { IMovie } from '../../models/movie.model';
 import { DatePipe } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-film-item',
@@ -10,4 +11,10 @@ import { DatePipe } from '@angular/common';
 })
 export class FilmItem {
   movie = input.required<IMovie>();
+  private router = inject(Router);
+
+  goToCard() {
+    const id = this.movie().id;
+    this.router.navigate([`/films/${id}`]);
+  }
 }

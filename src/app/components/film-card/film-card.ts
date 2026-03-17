@@ -2,10 +2,11 @@ import { Component, inject, OnInit, signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../services/api-service';
 import { Movie } from '../../models/movie.model';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-film-card',
-  imports: [],
+  imports: [NgOptimizedImage],
   templateUrl: './film-card.html',
   styleUrl: './film-card.scss',
 })

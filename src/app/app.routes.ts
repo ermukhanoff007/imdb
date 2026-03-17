@@ -18,7 +18,7 @@ export const routes: Routes = [
     component: FilmCard,
   },
   {
-    path: 'films/top-rate',
+    path: 'film/top-rate',
     component: FilmsPage,
   },
   {
