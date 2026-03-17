@@ -8,14 +8,16 @@ import { provideEffects } from '@ngrx/effects';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { moviesReducer } from './store/movies/movies.reducer';
 import { MoviesEffects } from './store/movies/movies.effects';
+import { TvEffects } from './store/series/series.effects';
+import { tvReducer } from './store/series/series.reducer';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
     provideHttpClient(),
-    provideStore({ movies: moviesReducer }),
-    provideEffects([MoviesEffects]),
+    provideStore({ movies: moviesReducer, tv: tvReducer }),
+    provideEffects([MoviesEffects, TvEffects]),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
   ],
 };

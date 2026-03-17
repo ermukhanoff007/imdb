@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import { ITvResponse } from '../../models/tv.model';
+import { ITvShow } from '../../models/tv.model';
 import { SeriesItem } from '../series-item/series-item';
 
 @Component({
@@ -9,5 +9,5 @@ import { SeriesItem } from '../series-item/series-item';
   styleUrl: './series-list.scss',
 })
 export class SeriesList {
-  seriesResponce = input.required<ITvResponse>();
+  series = input.required<ITvShow[]>();
 }

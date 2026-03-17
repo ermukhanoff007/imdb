@@ -1,6 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 import { ITvShow } from '../../models/tv.model';
-import { MoviesState } from '../movies/movies.state';
+import { TvState } from './series.state';
 
 export const loadTvShows = createAction('[TV] Load TV Shows');
 export const loadTvShowsSuccess = createAction(
@@ -9,5 +9,12 @@ export const loadTvShowsSuccess = createAction(
 );
 export const setTvFilter = createAction(
   '[TV] Set TV Shows Filter',
-  props<{ filter: Partial<MoviesState['filter']> }>(),
+  props<{ filter: Partial<TvState['filter']> }>(),
 );
+
+export const loadTopSeries = createAction('[TV] Load Top TV Series');
+export const loadTopSeriesSuccess = createAction(
+  '[TV] Load Top TV Series Success',
+  props<{ tvShows: ITvShow[] }>(),
+);
+export const resetFilter = createAction('[TV] Reset Filter');

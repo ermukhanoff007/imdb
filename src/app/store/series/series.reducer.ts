@@ -10,4 +10,16 @@ export const tvReducer = createReducer(
     ...state,
     filter: { ...state.filter, ...filter },
   })),
+
+  on(TvActions.loadTopSeries, (state) => ({ ...state, loading: true })),
+  on(TvActions.loadTopSeriesSuccess, (state, { tvShows }) => ({
+    ...state,
+    tvShows,
+    loading: false,
+  })),
+
+  on(TvActions.resetFilter, (state) => ({
+    ...state,
+    filter: { search: '', genreIds: [], voteRange: [0, 10] },
+  })),
 );

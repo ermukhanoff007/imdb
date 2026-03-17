@@ -1,8 +1,8 @@
 @let genres = genres$ | async;
 
-<div class="filter">
+<div class="filter-series">
   <form class="filter-form" [formGroup]="filterForm">
-    <div class="genre-options">
+    <div class="genre-options-series">
       @if (genres; as gList) {
         @for (genre of gList; track genre.id) {
           <button
@@ -15,14 +15,6 @@
         }
       }
     </div>
-    <label
-    >Adult:
-      <select formControlName="adult">
-        <option [ngValue]="null">Все</option>
-        <option [ngValue]="true">Adult</option>
-        <option [ngValue]="false">Not Adult</option>
-      </select>
-    </label>
     <label>
       Rating:
       <input type="number" min="0" max="10" formControlName="voteMin" /> -

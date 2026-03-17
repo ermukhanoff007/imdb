@@ -19,4 +19,14 @@ export class TvEffects {
       ),
     ),
   );
+  loadTopTvShows$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(TvActions.loadTopSeries),
+      switchMap(() =>
+        this.api
+          .getTopRatedTVSeries()
+          .pipe(map((res) => TvActions.loadTopSeriesSuccess({ tvShows: res.results }))),
+      ),
+    ),
+  );
 }
