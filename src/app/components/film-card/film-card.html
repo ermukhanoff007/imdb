@@ -1,0 +1,15 @@
+<section class="film-card">
+  <div
+    class="film-card__bg"
+    [style.background-image]="'url(https://image.tmdb.org/t/p/w500' + movie()?.backdrop_path + ')'"
+    [style.background-size]="'cover'"
+    [style.background-position]="'center'"
+    [style.width]="'100%'"
+    [style.height]="'400px'"
+  >
+    <div class="film-card__content">
+      <h2>{{ movie()?.title }}</h2>
+      <p>{{ movie()?.overview }}</p>
+    </div>
+  </div>
+</section>

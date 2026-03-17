@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { IMoviesResponse } from '../models/movie.model';
+import { IMoviesResponse, Movie } from '../models/movie.model';
 import { ITvResponse } from '../models/tv.model';
 import { environment } from '../../environments/environment.development';
 import { IGenre } from '../models/genre.model';
@@ -42,5 +42,9 @@ export class ApiService {
     return this.http
       .get<{ genres: IGenre[] }>(`${this.baseUrl}/genre/tv/list?api_key=${this.API_KEY}`)
       .pipe(map((res) => res.genres));
+  }
+
+  getMovieById(id: number) {
+    return this.http.get<Movie>(`${this.baseUrl}/movie/${id}?api_key=${this.API_KEY}`);
   }
 }

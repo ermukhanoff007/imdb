@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { MainPage } from './pages/main-page/main-page';
 import { FilmsPage } from './pages/films-page/films-page';
 import { SeriesPage } from './pages/series-page/series-page';
+import { FilmCard } from './components/film-card/film-card';
 
 export const routes: Routes = [
   {
@@ -11,6 +12,10 @@ export const routes: Routes = [
   {
     path: 'films',
     component: FilmsPage,
+  },
+  {
+    path: 'films/:id',
+    component: FilmCard,
   },
   {
     path: 'films/top-rate',
