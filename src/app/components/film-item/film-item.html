@@ -1,4 +1,4 @@
-<div class="film" (click)="goToCard()">
+<button class="film" (click)="goToCard()">
   <div class="film-img">
     <img [src]="'https://image.tmdb.org/t/p/w500' + movie().backdrop_path" alt="poster" />
   </div>
@@ -6,4 +6,4 @@
     <p class="film-description__title">{{ movie().title }}</p>
     <p class="film-description__date">{{ movie().release_date | date }}</p>
   </div>
-</div>
+</button>
