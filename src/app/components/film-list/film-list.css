@@ -13,4 +13,20 @@
   align-items: center;
 }
 
+@media all and (max-width: 1440px) {
+  .film-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media all and (max-width: 1240px) {
+  .film-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media all and (max-width: 780px) {
+  .film-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 /*# sourceMappingURL=film-list.css.map */

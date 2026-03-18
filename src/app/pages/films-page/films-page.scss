@@ -6,3 +6,9 @@
     margin-top: 40px;
   }
 }
+
+@media all and (max-width: 700px) {
+  .films-section__block {
+    flex-direction: column;
+  }
+}

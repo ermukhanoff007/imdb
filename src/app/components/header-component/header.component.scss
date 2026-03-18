@@ -112,3 +112,23 @@
   text-decoration: none;
   color: #050000;
 }
+
+@media all and (max-width: 720px) {
+  .header {
+    padding: 1rem 1rem;
+    justify-content: space-evenly;
+    &__nav {
+      gap: 10px;
+    }
+  }
+  .series-menu {
+    left: -10px;
+  }
+}
+
+@media all and (max-width: 450px) {
+  .header {
+    padding: 1rem 0;
+    justify-content: space-evenly;
+  }
+}

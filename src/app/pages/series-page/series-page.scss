@@ -6,3 +6,8 @@
     margin-top: 40px;
   }
 }
+@media all and (max-width: 700px) {
+  .series-section__block {
+    flex-direction: column;
+  }
+}

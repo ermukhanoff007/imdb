@@ -47,4 +47,8 @@ export class ApiService {
   getMovieById(id: number) {
     return this.http.get<Movie>(`${this.baseUrl}/movie/${id}?api_key=${this.API_KEY}`);
   }
+
+  getSeriesById(id: number) {
+    return this.http.get(`${this.baseUrl}/tv/${id}?api_key=${this.API_KEY}`);
+  }
 }

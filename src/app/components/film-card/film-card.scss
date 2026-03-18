@@ -44,6 +44,25 @@
   p {
     margin-bottom: 10px;
     line-height: 1.5;
-    color: #ddd;
+  }
+}
+
+@media all and (max-width: 720px) {
+  .film-card__content {
+    padding-top: 0;
+    flex-direction: column;
+    &-info {
+      margin-top: 40px;
+    }
+  }
+  img {
+    margin-top: 40px;
+  }
+
+  h2 {
+    color: black;
+  }
+  p {
+    color: black;
   }
 }

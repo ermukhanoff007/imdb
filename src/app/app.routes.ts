@@ -3,6 +3,7 @@ import { MainPage } from './pages/main-page/main-page';
 import { FilmsPage } from './pages/films-page/films-page';
 import { SeriesPage } from './pages/series-page/series-page';
 import { FilmCard } from './components/film-card/film-card';
+import { SeriesCard } from './components/series-card/series-card';
 
 export const routes: Routes = [
   {
@@ -26,7 +27,11 @@ export const routes: Routes = [
     component: SeriesPage,
   },
   {
-    path: 'series/top-rate',
+    path: 'serie/top-rate',
     component: SeriesPage,
+  },
+  {
+    path: 'series/:id',
+    component: SeriesCard,
   },
 ];

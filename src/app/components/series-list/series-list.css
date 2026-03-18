@@ -5,4 +5,20 @@
   padding: 0 20px 0 20px;
 }
 
+@media all and (max-width: 1440px) {
+  .series-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media all and (max-width: 1240px) {
+  .series-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media all and (max-width: 780px) {
+  .series-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 /*# sourceMappingURL=series-list.css.map */
