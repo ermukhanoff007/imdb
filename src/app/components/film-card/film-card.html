@@ -1,21 +1,21 @@
 <section class="film-card">
   <div
     class="film-card__bg"
-    [style.background-image]="'url(https://image.tmdb.org/t/p/w500' + movie()?.backdrop_path + ')'"
+    [style.background-image]="'url(https://image.tmdb.org/t/p/w500' + movie().backdrop_path + ')'"
   >
     <div class="film-card__content">
       <div>
         <img
-          [ngSrc]="'https://image.tmdb.org/t/p/w500' + movie()?.backdrop_path"
+          [ngSrc]="'https://image.tmdb.org/t/p/w500' + movie().backdrop_path"
           width="300px"
           height="300px"
           alt="filmPoster"
         />
       </div>
       <div>
-        <h2>{{ movie()?.title }}</h2>
-        <p>{{ movie()?.overview }}</p>
-        <p>Rating: {{ movie()?.vote_average }}</p>
+        <h2>{{ movie().title }}</h2>
+        <p>{{ movie().overview }}</p>
+        <p>Rating: {{ movie().vote_average }}</p>
       </div>
     </div>
   </div>

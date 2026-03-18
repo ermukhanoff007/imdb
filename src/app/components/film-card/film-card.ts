@@ -13,7 +13,7 @@ import { NgOptimizedImage } from '@angular/common';
 export class FilmCard implements OnInit {
   private route = inject(ActivatedRoute);
   private api = inject(ApiService);
-  movie = signal<Movie | null>(null);
+  movie = signal<Partial<Movie>>({ title: '', backdrop_path: '', overview: '', vote_average: 0 });
 
   filmId = signal<number | null>(null);
 
