@@ -3,9 +3,8 @@ import { Observable } from 'rxjs';
 import { IGenre } from '../../models/genre.model';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ApiService } from '../../services/api-service';
-import { Store } from '@ngrx/store';
 import { AsyncPipe } from '@angular/common';
-import { setTvFilter } from '../../store/series/series.action';
+import { TvSeriesStore } from '../../signalStore/series/series.signal.store';
 
 @Component({
   selector: 'app-filter-series-component',
@@ -18,7 +17,7 @@ export class FilterSeriesComponent implements OnInit {
   filterForm!: FormGroup;
   private api = inject(ApiService);
   private fb = inject(FormBuilder);
-  private store = inject(Store);
+  private store = inject(TvSeriesStore);
 
   ngOnInit() {
     this.genres$ = this.api.getSeriesGenres();
@@ -30,14 +29,10 @@ export class FilterSeriesComponent implements OnInit {
     });
 
     this.filterForm.valueChanges.subscribe((value) => {
-      this.store.dispatch(
-        setTvFilter({
-          filter: {
-            genreIds: value.genreIds,
-            voteRange: [value.voteMin, value.voteMax],
-          },
-        }),
-      );
+      this.store.setFilter({
+        genreIds: value.genreIds,
+        voteRange: [value.voteMin, value.voteMsx],
+      });
     });
   }
   toggleGenre(id: number) {

@@ -8,6 +8,6 @@ export interface TvState {
 
 export interface TVSeriesFilter {
   search: string;
-  genreIds: string[];
+  genreIds: number[];
   voteRange: [number, number];
 }

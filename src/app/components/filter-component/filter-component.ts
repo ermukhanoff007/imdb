@@ -4,8 +4,7 @@ import { IGenre } from '../../models/genre.model';
 import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { Store } from '@ngrx/store';
-import { setMovieFilter } from '../../store/movies/movies.action';
+import { MoviesStore } from '../../signalStore/movies/movies.signal.store';
 
 @Component({
   selector: 'app-filter-component',
@@ -18,7 +17,7 @@ export class FilterComponent implements OnInit {
   filterForm!: FormGroup;
   private api = inject(ApiService);
   private fb = inject(FormBuilder);
-  private store = inject(Store);
+  private store = inject(MoviesStore);
 
   ngOnInit() {
     this.genres$ = this.api.getMovieGenres();
@@ -31,15 +30,11 @@ export class FilterComponent implements OnInit {
     });
 
     this.filterForm.valueChanges.subscribe((value) => {
-      this.store.dispatch(
-        setMovieFilter({
-          filter: {
-            genreIds: value.genreIds,
-            adult: value.adult,
-            voteRange: [value.voteMin, value.voteMax],
-          },
-        }),
-      );
+      this.store.setFilter({
+        genreIds: value.genreIds,
+        adult: value.adult,
+        voteRange: [value.voteMin, value.voteMax],
+      });
     });
   }
   toggleGenre(id: number) {
