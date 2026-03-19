@@ -1,5 +1,5 @@
 <div class="series-list">
-  @for (series of series(); track $index) {
+  @for (series of series(); track series.id) {
     <app-series-item [series]="series"> </app-series-item>
   }
 </div>

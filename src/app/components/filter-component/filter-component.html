@@ -1,10 +1,8 @@
-@let genres = genres$ | async;
-
 <div class="filter">
   <form class="filter-form" [formGroup]="filterForm">
     <div class="genre-options">
-      @if (genres; as gList) {
-        @for (genre of gList; track genre.id) {
+      @if (genres$ | async; as genres) {
+        @for (genre of genres; track genre.id) {
           <button
             type="button"
             (click)="toggleGenre(genre.id)"

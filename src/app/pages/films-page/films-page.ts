@@ -7,6 +7,7 @@ import { AsyncPipe } from '@angular/common';
 import { Store } from '@ngrx/store';
 import { selectFilteredMovies } from '../../store/movies/movies.selector';
 import { loadMovies, loadTopMovies, resetFilter } from '../../store/movies/movies.action';
+import { MoviesStoreService } from '../../signalStore/movies/movies.signal.store';
 
 @Component({
   selector: 'app-films-page',
@@ -16,7 +17,7 @@ import { loadMovies, loadTopMovies, resetFilter } from '../../store/movies/movie
 })
 export class FilmsPage implements OnInit {
   private router = inject(Router);
-  private store = inject(Store);
+  private store = inject(MoviesStoreService);
 
   title = signal<string>('');
 

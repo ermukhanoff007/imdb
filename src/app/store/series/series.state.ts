@@ -2,16 +2,12 @@ import { ITvShow } from '../../models/tv.model';
 
 export interface TvState {
   tvShows: ITvShow[];
-  filter: {
-    search: string;
-    genreIds: number[];
-    voteRange: [number, number];
-  };
+  filter: TVSeriesFilter;
   loading: boolean;
 }
 
-export const initialState: TvState = {
-  tvShows: [],
-  filter: { search: '', genreIds: [], voteRange: [0, 10] },
-  loading: false,
-};
+export interface TVSeriesFilter {
+  search: string;
+  genreIds: string[];
+  voteRange: [number, number];
+}
