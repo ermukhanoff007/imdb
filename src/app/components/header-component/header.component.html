@@ -28,30 +28,12 @@
   <div class="header__nav">
     <div class="nav-item">
       <span class="header__nav-films">Фильмы</span>
-      <div class="film-menu">
-        <ul>
-          <li>
-            <a class="route" [routerLink]="['/films']">Популярные</a>
-          </li>
-          <li>
-            <a class="route" [routerLink]="['/film/top-rate']">Лучшие</a>
-          </li>
-        </ul>
-      </div>
+      <app-navi-list class="header__movie-list" item="movies"></app-navi-list>
     </div>
 
     <div class="nav-item">
       <span class="header__nav-series">Сериалы</span>
-      <div class="series-menu">
-        <ul>
-          <li>
-            <a class="route" [routerLink]="['/series']">Популярные</a>
-          </li>
-          <li>
-            <a class="route" [routerLink]="['/serie/top-rate']">Лучшие</a>
-          </li>
-        </ul>
-      </div>
+      <app-navi-list class="header__series-list" item="series"></app-navi-list>
     </div>
   </div>
 </header>

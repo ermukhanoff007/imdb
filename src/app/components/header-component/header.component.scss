@@ -24,93 +24,38 @@
     display: flex;
     align-items: center;
     gap: 25px;
-    &-films {
-      font-family: Roboto, Helvetica, Arial, sans-serif;
-      font-size: 1.25rem;
-      font-weight: 600;
-      line-height: 1.5rem;
-      letter-spacing: 0.0125em;
-      color: #fff;
-    }
-    &-series {
-      font-family: Roboto, Helvetica, Arial, sans-serif;
-      font-size: 1.25rem;
-      font-weight: 600;
-      line-height: 1.5rem;
-      letter-spacing: 0.0125em;
-      color: #fff;
-    }
+    position: relative;
   }
 }
 
 .nav-item {
   position: relative;
-
-  .film-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #fff;
-    color: #000;
-    border: 1px solid gray;
-    border-radius: 5px;
-    padding: 10px;
-    z-index: 10;
-
-    ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-
-      li {
-        padding: 5px 10px;
-        cursor: pointer;
-
-        &:hover {
-          background-color: #eee;
-        }
-      }
-    }
-  }
-
-  .series-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #fff;
-    color: #000;
-    border: 1px solid gray;
-    border-radius: 5px;
-    padding: 10px;
-    z-index: 10;
-
-    ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-
-      li {
-        padding: 5px 10px;
-        cursor: pointer;
-
-        &:hover {
-          background-color: #eee;
-        }
-      }
-    }
-  }
-
-  &:hover .film-menu,
-  &:hover .series-menu {
-    display: block;
-  }
 }
 
-.route {
-  text-decoration: none;
-  color: #050000;
+.header__movie-list {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 10;
+}
+.nav-item:hover .header__movie-list {
+  display: block;
+}
+
+.header__series-list {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 10;
+}
+.nav-item:hover .header__series-list {
+  display: block;
+}
+
+p-listbox {
+  border: none;
 }
 
 @media all and (max-width: 720px) {
