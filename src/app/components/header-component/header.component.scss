@@ -25,6 +25,22 @@
     align-items: center;
     gap: 25px;
     position: relative;
+    &-films {
+      font-family: Roboto, Helvetica, Arial, sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      line-height: 1.5rem;
+      letter-spacing: 0.0125em;
+      color: #fff;
+    }
+    &-series {
+      font-family: Roboto, Helvetica, Arial, sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      line-height: 1.5rem;
+      letter-spacing: 0.0125em;
+      color: #fff;
+    }
   }
 }
 
@@ -38,6 +54,7 @@
   top: 100%;
   left: 0;
   z-index: 10;
+  width: 130px;
 }
 .nav-item:hover .header__movie-list {
   display: block;
@@ -49,6 +66,7 @@
   top: 100%;
   left: 0;
   z-index: 10;
+  width: 130px;
 }
 .nav-item:hover .header__series-list {
   display: block;

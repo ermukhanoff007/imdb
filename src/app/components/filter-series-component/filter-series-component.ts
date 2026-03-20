@@ -3,14 +3,14 @@ import { Observable } from 'rxjs';
 import { IGenre } from '../../models/genre.model';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ApiService } from '../../services/api-service';
-import { AsyncPipe } from '@angular/common';
 import { TvSeriesStore } from '../../signalStore/series/series.signal.store';
 
 @Component({
   selector: 'app-filter-series-component',
-  imports: [AsyncPipe, ReactiveFormsModule],
+  imports: [ReactiveFormsModule],
   templateUrl: './filter-series-component.html',
   styleUrl: './filter-series-component.scss',
+  standalone: true,
 })
 export class FilterSeriesComponent implements OnInit {
   genres$!: Observable<IGenre[]>;

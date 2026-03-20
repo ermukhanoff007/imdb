@@ -10,13 +10,38 @@
   }
 }
 
-.genre-options button {
+.genre-options {
   margin: 2px;
 }
 
-.genre-options button.selected {
-  background-color: #007bff;
-  color: white;
+.genre-options__btns {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+:host ::ng-deep .p-selectbutton {
+  .p-togglebutton {
+    color: #333;
+    border-radius: 12px;
+    margin: 2px;
+
+    &.p-togglebutton-checked {
+      background-color: #f3cb03;
+    }
+  }
+}
+
+h4 {
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.5rem;
+  letter-spacing: 0.0125em;
+}
+
+:host ::ng-deep .p-inputnumber {
+  .p-inputnumber-input {
+    width: 50px;
+    margin: 5px;
+  }
 }
 
 @media all and (max-width: 1280px) {

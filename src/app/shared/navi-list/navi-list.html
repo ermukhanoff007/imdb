@@ -1,1 +1,11 @@
-<p>navi-list works!</p>
+<div class="list">
+  <p-listbox
+    [ngModel]="selectedNav()"
+    (ngModelChange)="onNavChange($event)"
+    [options]="navi()"
+    optionLabel="name"
+    [checkmark]="true"
+    [highlightOnSelect]="false"
+    class="w-full md:w-56"
+  />
+</div>

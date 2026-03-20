@@ -6,19 +6,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-navi-list',
   imports: [ListboxModule, FormsModule],
-  template: `
-    <div class="card flex justify-center">
-      <p-listbox
-        [ngModel]="selectedNav()"
-        (ngModelChange)="onNavChange($event)"
-        [options]="navi()"
-        optionLabel="name"
-        [checkmark]="true"
-        [highlightOnSelect]="false"
-        class="w-full md:w-56"
-      />
-    </div>
-  `,
+  templateUrl: './navi-list.html',
   styleUrl: './navi-list.scss',
   standalone: true,
 })
