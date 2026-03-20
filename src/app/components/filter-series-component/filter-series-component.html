@@ -1,24 +1,20 @@
-@let genres = genres$ | async;
-
 <div class="filter-series">
   <form class="filter-series-form" [formGroup]="filterForm">
     <div class="genre-options-series">
-      @if (genres; as gList) {
-        @for (genre of gList; track genre.id) {
-          <button
-            type="button"
-            (click)="toggleGenre(genre.id)"
-            [class.selected]="isGenreSelected(genre.id)"
-          >
-            {{ genre.name }}
-          </button>
-        }
-      }
+      <p-selectButton
+        class="genre-options__btns"
+        [options]="genreOptions"
+        formControlName="genreIds"
+        [multiple]="true"
+        optionLabel="name"
+        optionValue="id"
+      >
+      </p-selectButton>
     </div>
     <label>
-      Rating:
-      <input type="number" min="0" max="10" formControlName="voteMin" /> -
-      <input type="number" min="0" max="10" formControlName="voteMax" />
+      <h4>Rating:</h4>
+      <p-input-number formControlName="voteMin" [min]="0" [max]="10"> </p-input-number>-
+      <p-input-number formControlName="voteMax" [min]="0" [max]="10"> </p-input-number>
     </label>
   </form>
 </div>

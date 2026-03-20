@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   imports: [DatePipe],
   templateUrl: './series-item.html',
   styleUrl: './series-item.scss',
+  standalone: true,
 })
 export class SeriesItem {
   series = input.required<ITvShow>();

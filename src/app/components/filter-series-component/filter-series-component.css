@@ -9,6 +9,35 @@
   justify-content: center;
 }
 
+.genre-options {
+  margin: 2px;
+}
+
+.genre-options__btns {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+:host ::ng-deep .p-selectbutton .p-togglebutton {
+  color: #333;
+  border-radius: 12px;
+  margin: 2px;
+}
+:host ::ng-deep .p-selectbutton .p-togglebutton.p-togglebutton-checked {
+  background-color: #f3cb03;
+}
+
+h4 {
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.5rem;
+  letter-spacing: 0.0125em;
+}
+
+:host ::ng-deep .p-inputnumber .p-inputnumber-input {
+  width: 50px;
+  margin: 5px;
+}
+
 .genre-options-series button {
   margin: 2px;
 }

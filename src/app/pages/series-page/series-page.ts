@@ -9,6 +9,7 @@ import { TvSeriesStore } from '../../signalStore/series/series.signal.store';
   imports: [SeriesList, FilterSeriesComponent],
   templateUrl: './series-page.html',
   styleUrl: './series-page.scss',
+  standalone: true,
 })
 export class SeriesPage implements OnInit {
   private router = inject(Router);
@@ -16,7 +17,7 @@ export class SeriesPage implements OnInit {
 
   title = signal<string>('');
 
-  series = this.store.tvShows;
+  series = this.store.filteredSeries;
 
   ngOnInit(): void {
     const url = this.router.url;

@@ -1,9 +1,13 @@
-@if (movies().length === 0) {
-  <div class="empty">No Films</div>
-}
+<p-dataview [value]="movies()">
+  <ng-template>
+    <div class="empty">No Films</div>
+  </ng-template>
 
-<div class="film-list">
-  @for (movie of movies(); track $index) {
-    <app-film-item [movie]="movie"> </app-film-item>
-  }
-</div>
+  <ng-template #list let-items>
+    <div class="film-list">
+      @for (movie of items; track movie.id) {
+        <app-film-item [movie]="movie"></app-film-item>
+      }
+    </div>
+  </ng-template>
+</p-dataview>

@@ -4,10 +4,13 @@ import { IGenre } from '../../models/genre.model';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ApiService } from '../../services/api-service';
 import { TvSeriesStore } from '../../signalStore/series/series.signal.store';
+import { InputNumber } from 'primeng/inputnumber';
+import { SelectButton } from 'primeng/selectbutton';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-filter-series-component',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, InputNumber, SelectButton],
   templateUrl: './filter-series-component.html',
   styleUrl: './filter-series-component.scss',
   standalone: true,
@@ -15,12 +18,19 @@ import { TvSeriesStore } from '../../signalStore/series/series.signal.store';
 export class FilterSeriesComponent implements OnInit {
   genres$!: Observable<IGenre[]>;
   filterForm!: FormGroup;
+  genreOptions: { id: number; name: string }[] = [];
+
   private api = inject(ApiService);
   private fb = inject(FormBuilder);
   private store = inject(TvSeriesStore);
 
   ngOnInit() {
     this.genres$ = this.api.getSeriesGenres();
+    this.genres$
+      .pipe(map((genres) => genres.map((g) => ({ id: g.id, name: g.name }))))
+      .subscribe((options) => {
+        this.genreOptions = options;
+      });
 
     this.filterForm = this.fb.group({
       genreIds: [[]],
@@ -31,23 +41,8 @@ export class FilterSeriesComponent implements OnInit {
     this.filterForm.valueChanges.subscribe((value) => {
       this.store.setFilter({
         genreIds: value.genreIds,
-        voteRange: [value.voteMin, value.voteMsx],
+        voteRange: [value.voteMin, value.voteMax],
       });
     });
-  }
-  toggleGenre(id: number) {
-    const control = this.filterForm.get('genreIds');
-    const current: number[] = control?.value || [];
-
-    if (current.includes(id)) {
-      control?.setValue(current.filter((g) => g !== id));
-    } else {
-      control?.setValue([...current, id]);
-    }
-  }
-
-  isGenreSelected(id: number): boolean {
-    const current: number[] = this.filterForm.get('genreIds')?.value || [];
-    return current.includes(id);
   }
 }

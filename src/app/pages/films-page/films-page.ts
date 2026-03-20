@@ -9,6 +9,7 @@ import { MoviesStore } from '../../signalStore/movies/movies.signal.store';
   imports: [FilmList, FilterComponent],
   templateUrl: './films-page.html',
   styleUrl: './films-page.scss',
+  standalone: true,
 })
 export class FilmsPage implements OnInit {
   private router = inject(Router);

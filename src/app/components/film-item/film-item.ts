@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   imports: [DatePipe],
   templateUrl: './film-item.html',
   styleUrl: './film-item.scss',
+  standalone: true,
 })
 export class FilmItem {
   movie = input.required<IMovie>();

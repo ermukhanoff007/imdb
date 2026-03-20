@@ -33,9 +33,14 @@ export const TvSeriesStore = signalStore(
     filteredSeries: computed(() =>
       store.tvShows().filter((show) => {
         const { search, genreIds, voteRange } = store.filter();
+        console.log('genreIds:', genreIds);
+        console.log('show.genre_ids:', show.genre_ids);
+        console.log('typeof show.genre_ids[0]:', typeof show.genre_ids[0]);
+        console.log('typeof genreIds[0]:', typeof genreIds[0]);
         return (
           show.name.toLowerCase().includes(search.toLowerCase()) &&
-          (genreIds.length === 0 || show.genre_ids.some((id) => genreIds.includes(id))) &&
+          (genreIds.length === 0 ||
+            show.genre_ids.some((id) => genreIds.map(Number).includes(id))) &&
           show.vote_average >= voteRange[0] &&
           show.vote_average <= voteRange[1]
         );
