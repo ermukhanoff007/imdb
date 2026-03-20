@@ -1,4 +1,11 @@
-import { patchState, signalStore, withComputed, withMethods, withState } from '@ngrx/signals';
+import {
+  patchState,
+  signalStore,
+  withComputed,
+  withMethods,
+  withProps,
+  withState,
+} from '@ngrx/signals';
 import { TVSeriesFilter, TvState } from './series.state';
 import { computed, inject } from '@angular/core';
 import { ApiService } from '../../services/api-service';
@@ -12,12 +19,17 @@ export const TvSeriesStore = signalStore(
     filter: { search: '', genreIds: [], voteRange: [0, 10] },
     loading: false,
   }),
-  withMethods((store, api = inject(ApiService)) => ({
+
+  withProps(() => ({
+    api: inject(ApiService),
+  })),
+
+  withMethods((store) => ({
     loadSeries: rxMethod<'popular' | 'top-rated'>((type$) => {
       return type$.pipe(
         tap(() => patchState(store, { loading: true, tvShows: [] })),
         switchMap((type) =>
-          type === 'popular' ? api.getPopularTVSeries() : api.getTopRatedTVSeries(),
+          type === 'popular' ? store.api.getPopularTVSeries() : store.api.getTopRatedTVSeries(),
         ),
         tap({
           next: (res) => patchState(store, { tvShows: res.results, loading: false }),

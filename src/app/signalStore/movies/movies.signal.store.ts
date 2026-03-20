@@ -1,5 +1,12 @@
 import { computed, inject } from '@angular/core';
-import { patchState, signalStore, withComputed, withMethods, withState } from '@ngrx/signals';
+import {
+  patchState,
+  signalStore,
+  withComputed,
+  withMethods,
+  withProps,
+  withState,
+} from '@ngrx/signals';
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
 import { switchMap, tap } from 'rxjs/operators';
 import { ApiService } from '../../services/api-service';
@@ -13,12 +20,16 @@ export const MoviesStore = signalStore(
     loading: false,
   }),
 
-  withMethods((store, api = inject(ApiService)) => ({
+  withProps(() => ({
+    api: inject(ApiService),
+  })),
+
+  withMethods((store) => ({
     loadMovies: rxMethod<'popular' | 'top-rated'>((type$) => {
       return type$.pipe(
         tap(() => patchState(store, { loading: true, movies: [] })),
         switchMap((type) =>
-          type === 'popular' ? api.getPopularMovies() : api.getTopRatedMovies(),
+          type === 'popular' ? store.api.getPopularMovies() : store.api.getTopRatedMovies(),
         ),
         tap({
           next: (res) => patchState(store, { movies: res.results, loading: false }),
