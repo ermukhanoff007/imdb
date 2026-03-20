@@ -12,4 +12,5 @@ import { DataViewModule } from 'primeng/dataview';
 })
 export class SeriesList {
   series = input.required<ITvShow[]>();
+  loading = input.required<boolean>();
 }

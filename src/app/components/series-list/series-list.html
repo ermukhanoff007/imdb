@@ -1,11 +1,8 @@
 <p-dataview [value]="series()">
-  <ng-template>
-    <div class="empty">No Series</div>
-  </ng-template>
   <ng-template #list let-items>
     <div class="series-list">
       @for (series of items; track series.id) {
-        <app-series-item [series]="series"> </app-series-item>
+        <app-series-item [loading]="loading()" [series]="series"> </app-series-item>
       }
     </div>
   </ng-template>

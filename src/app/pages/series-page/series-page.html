@@ -1,7 +1,15 @@
 <section class="series-section">
-  <h1>{{ title() }}</h1>
+  <div class="series-section__header">
+    <h1>{{ title() }}</h1>
+    <div class="search-wrapper">
+      <p-iconfield>
+        <p-inputicon class="pi pi-search" />
+        <input [formControl]="searchControl" type="text" placeholder="Search" />
+      </p-iconfield>
+    </div>
+  </div>
   <div class="series-section__block">
     <app-filter-series-component></app-filter-series-component>
-    <app-series-list [series]="series()"></app-series-list>
+    <app-series-list [loading]="isLoading()" [series]="series()"></app-series-list>
   </div>
 </section>

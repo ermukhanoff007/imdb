@@ -3,10 +3,13 @@ import { FilmList } from '../../components/film-list/film-list';
 import { FilterComponent } from '../../components/filter-component/filter-component';
 import { Router } from '@angular/router';
 import { MoviesStore } from '../../signalStore/movies/movies.signal.store';
+import { IconField } from 'primeng/iconfield';
+import { InputIcon } from 'primeng/inputicon';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-films-page',
-  imports: [FilmList, FilterComponent],
+  imports: [FilmList, FilterComponent, IconField, InputIcon, ReactiveFormsModule],
   templateUrl: './films-page.html',
   styleUrl: './films-page.scss',
   standalone: true,
@@ -19,6 +22,8 @@ export class FilmsPage implements OnInit {
 
   movies = this.store.filteredMovies;
 
+  searchControl = new FormControl('');
+
   ngOnInit(): void {
     const url = this.router.url;
 
@@ -29,5 +34,8 @@ export class FilmsPage implements OnInit {
       this.title.set('Popular Films');
       this.store.loadMovies('popular');
     }
+    this.searchControl.valueChanges.subscribe((value) => {
+      this.store.setFilter({ search: value || '' });
+    });
   }
 }

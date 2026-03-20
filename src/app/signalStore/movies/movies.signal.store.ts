@@ -34,10 +34,11 @@ export const MoviesStore = signalStore(
   withComputed((store) => ({
     filteredMovies: computed(() => {
       const movies = store.movies();
-      const { genreIds, adult, voteRange } = store.filter();
+      const { search, genreIds, adult, voteRange } = store.filter();
 
       return movies.filter((movie) => {
         return (
+          movie.title.toLowerCase().includes(search.toLowerCase()) &&
           (genreIds.length === 0 || movie.genre_ids.some((id) => genreIds.includes(id))) &&
           (adult === null || movie.adult === adult) &&
           movie.vote_average >= voteRange[0] &&

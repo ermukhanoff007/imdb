@@ -7,3 +7,6 @@
     <p class="series-description__date">{{ series().first_air_date | date }}</p>
   </div>
 </button>
+@if (loading()) {
+  <p-skeleton height="2rem" width="10rem"></p-skeleton>
+}
