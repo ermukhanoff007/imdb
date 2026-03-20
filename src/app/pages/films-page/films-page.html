@@ -1,0 +1,15 @@
+<section class="films-section">
+  <div class="films-section__header">
+    <h1>{{ title() }}</h1>
+    <div class="search-wrapper">
+      <p-iconfield>
+        <p-inputicon class="pi pi-search" />
+        <input [formControl]="searchControl" type="text" placeholder="Search" />
+      </p-iconfield>
+    </div>
+  </div>
+  <div class="films-section__block">
+    <app-filter-component></app-filter-component>
+    <app-film-list [movies]="movies()"></app-film-list>
+  </div>
+</section>

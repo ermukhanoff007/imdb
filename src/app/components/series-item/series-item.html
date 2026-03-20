@@ -1,0 +1,12 @@
+<button class="series" (click)="goToCard()">
+  <div class="series-img">
+    <img [src]="'https://image.tmdb.org/t/p/w500' + series().backdrop_path" alt="poster" />
+  </div>
+  <div class="series-description">
+    <p class="series-description__title">{{ series().name }}</p>
+    <p class="series-description__date">{{ series().first_air_date | date }}</p>
+  </div>
+</button>
+@if (loading()) {
+  <p-skeleton height="2rem" width="10rem"></p-skeleton>
+}

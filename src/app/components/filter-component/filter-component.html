@@ -1,0 +1,28 @@
+<div class="filter">
+  <form class="filter-form" [formGroup]="filterForm">
+    <div class="genre-options">
+      <p-selectButton
+        class="genre-options__btns"
+        [options]="genreOptions"
+        formControlName="genreIds"
+        [multiple]="true"
+        optionLabel="name"
+        optionValue="id"
+      >
+      </p-selectButton>
+    </div>
+    <p-select
+      formControlName="adult"
+      [options]="adultOptions"
+      placeholder="Films for adult ?"
+      [showClear]="true"
+      optionLabel="label"
+      optionValue="value"
+    ></p-select>
+    <label>
+      <h4>Rating:</h4>
+      <p-input-number formControlName="voteMin" [min]="0" [max]="10"> </p-input-number>-
+      <p-input-number formControlName="voteMax" [min]="0" [max]="10"> </p-input-number>
+    </label>
+  </form>
+</div>
